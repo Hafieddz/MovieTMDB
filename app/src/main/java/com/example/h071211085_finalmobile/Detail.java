@@ -47,13 +47,11 @@ public class Detail extends AppCompatActivity {
         if (isNetworkAvailable()) {
             Intent intent = getIntent();
             String movieId = intent.getStringExtra("movie_id");
-            Toast.makeText(this, movieId, Toast.LENGTH_SHORT).show();
             Call<Data2> call = ApiConfig.getApiService().getMovieDetails(Integer.valueOf(movieId), "35254a98cc59f9518caf1bacbf0f5792");
             call.enqueue(new Callback<Data2>() {
                 @Override
                 public void onResponse(Call<Data2> call, Response<Data2> response) {
                     if (response.isSuccessful()) {
-                        Toast.makeText(Detail.this, "test", Toast.LENGTH_SHORT).show();
                         if (response.body() != null) {
                             Movie movie = response.body().getData2();
                             String judul = getIntent().getStringExtra("judul");

@@ -47,13 +47,11 @@ public class ShowDetail extends AppCompatActivity {
         if (isNetworkAvailable()) {
             Intent intent = getIntent();
             String tvid = intent.getStringExtra("tv_id");
-            Toast.makeText(this, tvid, Toast.LENGTH_SHORT).show();
             Call<Data4> call = ApiConfig.getApiService().getTVShowDetails(Integer.valueOf(tvid), "35254a98cc59f9518caf1bacbf0f5792");
             call.enqueue(new Callback<Data4>() {
                 @Override
                 public void onResponse(Call<Data4> call, Response<Data4> response) {
                     if (response.isSuccessful()) {
-                        Toast.makeText(ShowDetail.this, "test", Toast.LENGTH_SHORT).show();
                         if (response.body() != null) {
                             TvShow tv = response.body().getData4();
                             String judul = getIntent().getStringExtra("judul");
