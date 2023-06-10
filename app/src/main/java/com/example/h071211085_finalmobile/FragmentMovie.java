@@ -57,7 +57,7 @@ public class FragmentMovie extends Fragment {
         im2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentMovie thirdFragment = new FragmentMovie();
+                FragmentShow thirdFragment = new FragmentShow();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.frame_container, thirdFragment);
