@@ -47,7 +47,7 @@ public class FragmentShow extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_2, container, false);
+        View view = inflater.inflate(R.layout.fragment_show, container, false);
 
         retryicon = view.findViewById(R.id.retryicon);
         recyclerView = view.findViewById(R.id.recyclerView2);
