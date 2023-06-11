@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:listitem="@layout/movie" />
+            tools:listitem="@layout/favorite" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,7 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Please check your internet connection" />
+                    android:textColor="white"
+                    android:text="Favourite Section not ready yet!" />
 
                 <ImageView
                     android:layout_marginBottom="100dp"

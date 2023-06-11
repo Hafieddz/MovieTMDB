@@ -35,12 +35,13 @@ public class FragmentMovie extends Fragment {
     private RecyclerView recyclerView;
     private LinearLayout retryicon;
 
-    private ImageView im2;
+    private ImageView im2,im3;
     private ProgressBar progressBar;
 
     private Handler handler;
 
     private ImageView Retryy;
+
     public static ArrayList<Movie> dataPerson = new ArrayList<>();
 
     @Override
@@ -65,6 +66,20 @@ public class FragmentMovie extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+
+        im3 = view.findViewById(R.id.imageView3);
+        im3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FavoriteFragment thirdFragment = new FavoriteFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, thirdFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
 
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);

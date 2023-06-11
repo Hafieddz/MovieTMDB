@@ -36,7 +36,7 @@ public class FragmentShow extends Fragment {
     private LinearLayout retryicon;
     private ProgressBar progressBar;
 
-    private ImageView im1;
+    private ImageView im1,im3;
 
     private Handler handler;
 
@@ -59,6 +59,19 @@ public class FragmentShow extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentMovie thirdFragment = new FragmentMovie();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, thirdFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        im3 = view.findViewById(R.id.imageView3);
+        im3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FavoriteFragment thirdFragment = new FavoriteFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.frame_container, thirdFragment);
