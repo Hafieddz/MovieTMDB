@@ -20,8 +20,8 @@ import retrofit2.Response;
 
 public class Detail extends AppCompatActivity {
 
-    private ImageView img2,img3,back;
-    private TextView tv4,tv5,tv6;
+    private ImageView img2,img3,back,favourite;
+    private TextView tv4,tv5,tv6,tv7;
 
 
     @Override
@@ -33,7 +33,17 @@ public class Detail extends AppCompatActivity {
         tv4 = findViewById(R.id.tv4);
         tv5 = findViewById(R.id.tv5);
         tv6 = findViewById(R.id.tv6);
+        tv7 = findViewById(R.id.tv7);
         back  = findViewById(R.id.button_back);
+        favourite = findViewById(R.id.fav_button);
+
+        favourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Detail.this, "added to favourite", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,9 +69,11 @@ public class Detail extends AppCompatActivity {
                             String synopsis = getIntent().getStringExtra("synopsis");
                             String backdropPath = getIntent().getStringExtra("backdrop");
                             String poster = getIntent().getStringExtra("poster");
+                            String date = getIntent().getStringExtra("tanggal");
                             tv4.setText(judul);
                             tv5.setText(rating);
                             tv6.setText(synopsis);
+                            tv7.setText(date);
                             Glide.with(Detail.this)
                                     .load("https://image.tmdb.org/t/p/w500" + backdropPath)
                                     .into(img2);
