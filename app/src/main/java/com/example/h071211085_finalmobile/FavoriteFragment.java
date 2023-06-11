@@ -27,7 +27,7 @@ public class FavoriteFragment extends Fragment {
 
     private LinearLayout retryicon;
 
-    private ImageView im2, im1;
+    private ImageView im2, im1, im3;
 
     private ProgressBar progressBar;
 
@@ -63,6 +63,19 @@ public class FavoriteFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentMovie thirdFragment = new FragmentMovie();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, thirdFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        im3 = view.findViewById(R.id.imageView3);
+        im3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FavoriteFragment thirdFragment = new FavoriteFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.frame_container, thirdFragment);

@@ -21,6 +21,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.AppBarLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -35,7 +37,7 @@ public class FragmentMovie extends Fragment {
     private RecyclerView recyclerView;
     private LinearLayout retryicon;
 
-    private ImageView im2,im3;
+    private ImageView im2,im3,im1;
     private ProgressBar progressBar;
 
     private Handler handler;
@@ -64,6 +66,7 @@ public class FragmentMovie extends Fragment {
                 fragmentTransaction.replace(R.id.frame_container, thirdFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+
             }
         });
 
@@ -72,6 +75,19 @@ public class FragmentMovie extends Fragment {
             @Override
             public void onClick(View view) {
                 FavoriteFragment thirdFragment = new FavoriteFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_container, thirdFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        im1 = view.findViewById(R.id.imageView1);
+        im1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentMovie thirdFragment = new FragmentMovie();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.frame_container, thirdFragment);

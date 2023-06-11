@@ -19,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ShowDetail extends AppCompatActivity {
-    private ImageView img2,img3,back;
+    private ImageView img2,img3,back,favourite;
     private TextView tv4,tv5,tv6;
 
 
@@ -27,12 +27,21 @@ public class ShowDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_detail);
-        img2 = findViewById(R.id.img2);
-        img3 = findViewById(R.id.img3);
+        img2 = findViewById(R.id.gambar2);
+        img3 = findViewById(R.id.gambar3);
         tv4 = findViewById(R.id.tv4);
         tv5 = findViewById(R.id.tv5);
         tv6 = findViewById(R.id.tv6);
-        back  = findViewById(R.id.backbutton);
+        back  = findViewById(R.id.button_back);
+        favourite = findViewById(R.id.fav_button);
+
+        favourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ShowDetail.this, "added to favourite", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -67,6 +67,7 @@ public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder> {
                 intent.putExtra("backdrop", tv.getBackdropPath());
                 intent.putExtra("judul", tv.getName());
                 intent.putExtra("poster", tv.getPosterPath());
+                intent.putExtra("tanggal", tv.getFirstAirDate());
                 itemView.getContext().startActivity(intent);
             });
         }
